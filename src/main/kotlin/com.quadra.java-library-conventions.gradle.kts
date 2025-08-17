@@ -1,5 +1,5 @@
 plugins {
-    java
+    `java-library`
 }
 
 java {
@@ -17,7 +17,6 @@ repositories {
 }
 
 dependencies {
-
     // lombok
     compileOnly("org.projectlombok:lombok:1.18.38")
     annotationProcessor("org.projectlombok:lombok:1.18.38")
