@@ -3,8 +3,8 @@ plugins {
     `maven-publish`
 }
 
-group = "com.quadra.convention"
-version = "1.0.0"
+group = "com.quadra"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
