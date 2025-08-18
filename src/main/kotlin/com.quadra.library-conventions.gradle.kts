@@ -4,6 +4,8 @@ plugins {
     id("com.quadra.java-conventions")
 }
 
+group = "com.quadra.common"
+
 publishing {
     repositories {
         maven {
