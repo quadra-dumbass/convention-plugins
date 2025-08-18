@@ -21,9 +21,9 @@ publishing {
     publications {
         create<MavenPublication>("gpr") {
             from(components["java"])
-            groupId = project.findProperty("groupId") as String
+            groupId = project.findProperty("groupId") as String? ?: project.group as String
             artifactId = project.findProperty("artifactId") as String? ?: project.name
-            version = project.findProperty("version") as String
+            version = project.findProperty("version") as String? ?: project.version as String
         }
     }
 }
