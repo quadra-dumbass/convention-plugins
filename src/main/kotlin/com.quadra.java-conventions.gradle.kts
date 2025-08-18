@@ -2,6 +2,8 @@ plugins {
     java
 }
 
+group = "com.quadra"
+
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
