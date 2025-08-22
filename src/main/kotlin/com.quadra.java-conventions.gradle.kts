@@ -14,8 +14,25 @@ configurations.compileOnly {
     extendsFrom(configurations.annotationProcessor.get())
 }
 
+val gprUser = providers.gradleProperty("gpr.module.user")
+    .orElse(providers.environmentVariable("GITHUB_MODULE_USER"))
+    .orNull
+val gprToken = providers.gradleProperty("gpr.module.token")
+    .orElse(providers.environmentVariable("GITHUB_MODULE_TOKEN"))
+    .orNull
+
 repositories {
     mavenCentral()
+    if (!gprUser.isNullOrBlank() && !gprToken.isNullOrBlank()) {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/quadra-dumbass/common-module")
+            credentials {
+                username = gprUser
+                password = gprToken
+            }
+        }
+    }
 }
 
 dependencies {
